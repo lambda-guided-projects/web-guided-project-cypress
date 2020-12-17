@@ -8,6 +8,7 @@ describe("Quotes app", () => {
 
   const textInput = () => cy.get('input[name="text"]');
   const authorInput = () => cy.get('input[name="author"]');
+  const submitBtn = ()
 
   // here go our tests
   it("sanity test to make sure tests work", () => {
@@ -19,6 +20,7 @@ describe("Quotes app", () => {
     expect(1 + 2).to.equal(3);
     expect(2 + 2).not.to.equal(5);
   });
+
   it("the proper elements are showing on the screeen", () => {
     cy.get('input[name="text"]').should("exist");
     cy.get('input[name="foobar"]').should("not.exist");
@@ -27,6 +29,7 @@ describe("Quotes app", () => {
     cy.contains("Submit Quote");
     cy.contains(/submit quote/i);
   });
+
   it("can type in the inputs", () => {
     // grab the inputs
     // assert they are empty
@@ -36,7 +39,7 @@ describe("Quotes app", () => {
       .should("have.value", "")
       .type("have fun learning React!")
       .should("have.value", "have fun learning React!");
-    cy.get('input[name="author"]')
+    authorInput()
       .should("have.value", "")
       .type("am I doing this right?")
       .should("have.value", "am I doing this right?");
