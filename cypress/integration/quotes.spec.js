@@ -28,7 +28,8 @@ describe("Quotes app", () => {
     // assert they are empty
     // type in the inputs
     // assert that the thing we typed is there
-    cy.get('input[name="text"]').should("have.value", "");
-    cy.get('input[name="text"]').type("have fun learning React!");
+    cy.get('input[name="text"]')
+      .should("have.value", "")
+      .type("have fun learning React!");
   });
 });
