@@ -15,4 +15,5 @@ describe("Quotes app", () => {
     expect(1 + 2).to.equal(3);
     expect(2 + 2).not.to.equal(5);
   });
+  it("playing around selecting elements from the DOM", () => {});
 });
