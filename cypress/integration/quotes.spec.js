@@ -30,6 +30,7 @@ describe("Quotes app", () => {
     // assert that the thing we typed is there
     cy.get('input[name="text"]')
       .should("have.value", "")
-      .type("have fun learning React!");
+      .type("have fun learning React!")
+      .should("have.value", "have fun learning React!");
   });
 });
