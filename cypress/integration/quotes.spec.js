@@ -25,8 +25,8 @@ describe("Quotes app", () => {
   it("the proper elements are showing on the screeen", () => {
     cy.get('input[name="text"]').should("exist");
     cy.get('input[name="foobar"]').should("not.exist");
-    cy.get("#submitBtn").should("exist");
-    cy.get("#cancelBtn").should("exist");
+    submitButton().should("exist");
+    cancelButton().should("exist");
     cy.contains("Submit Quote");
     cy.contains(/submit quote/i);
   });
