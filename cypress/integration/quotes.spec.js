@@ -45,4 +45,14 @@ describe("Quotes app", () => {
       .type("am I doing this right?")
       .should("have.value", "am I doing this right?");
   });
+
+  it("submit button disabled until both inputs filled out", () => {
+    // set up, sanity checks to make sure initial state is legit
+    // act (like typing or clicking - mimicking user input)
+    // assert that the action has the effect we expect
+    //submit quote is disabled.
+    //put text into text input
+    // the submit button still disabled.
+    //then check that if both inputs are filled the submit button is working.
+  });
 });
