@@ -71,4 +71,14 @@ describe("Quotes app", () => {
     // "be.disabled"
     // .clear()
   });
+
+  it("can cancel a new quote", () => {
+    // should('have.value', '') - input is empty
+    // .click()
+
+    textInput().type("test");
+    authorInput().type("test");
+    cancelButt().trigger("click");
+    (textInput() && authorInput()).should("have.value", "");
+  });
 });
