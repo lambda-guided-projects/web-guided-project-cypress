@@ -18,5 +18,7 @@ describe("Quotes app", () => {
   it("playing around selecting elements from the DOM", () => {
     cy.get('input[name="text"]').should("exist");
     cy.get('input[name="foobar"]').should("not.exist");
+    cy.get("#submitBtn");
+    cy.get("#cancelBtn");
   });
 });
