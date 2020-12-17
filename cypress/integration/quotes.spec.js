@@ -51,8 +51,13 @@ describe("Quotes app", () => {
     // act (like typing or clicking - mimicking user input)
     // assert that the action has the effect we expect
     //submit quote is disabled.
-    //put text into text input
+    // put text into text input
     // the submit button still disabled.
-    //then check that if both inputs are filled the submit button is working.
+    // put text into author input
+    // the submit button still disabled.
+    // both inputs are filled
+    // submit button is working.
+    // "be.disabled"
+    // .clear()
   });
 });
