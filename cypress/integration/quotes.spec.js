@@ -5,6 +5,8 @@ describe("Quotes app", () => {
     // arbitrary code you want running before tests start
     cy.visit("http://localhost:1234");
   });
+  const textInput = () => cy.get('input[name="text"]');
+  const authorInput = () => cy.get('input[name="author"]');
   // here go our tests
   it("sanity test to make sure tests work", () => {
     // false positive
@@ -28,7 +30,7 @@ describe("Quotes app", () => {
     // assert they are empty
     // type in the inputs
     // assert that the thing we typed is there
-    cy.get('input[name="text"]')
+    textInput()
       .should("have.value", "")
       .type("have fun learning React!")
       .should("have.value", "have fun learning React!");
