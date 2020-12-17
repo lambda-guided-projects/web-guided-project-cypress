@@ -78,7 +78,7 @@ describe("Quotes app", () => {
 
     textInput().type("test");
     authorInput().type("test");
-    cancelButt().trigger("click");
+    cancelButton().trigger("click");
     (textInput() && authorInput()).should("have.value", "");
   });
 });
