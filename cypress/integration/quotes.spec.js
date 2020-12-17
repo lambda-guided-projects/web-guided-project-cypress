@@ -15,11 +15,11 @@ describe("Quotes app", () => {
     expect(1 + 2).to.equal(3);
     expect(2 + 2).not.to.equal(5);
   });
-  it("playing around selecting elements from the DOM", () => {
+  it("the proper elements are showing on the screeen", () => {
     cy.get('input[name="text"]').should("exist");
     cy.get('input[name="foobar"]').should("not.exist");
     cy.get("#submitBtn").should("exist");
     cy.get("#cancelBtn").should("exist");
-    cy.contains("Submit quote");
+    cy.contains("Submit Quote");
   });
 });
