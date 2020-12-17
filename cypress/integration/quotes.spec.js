@@ -62,7 +62,7 @@ describe("Quotes app", () => {
     // clear text input
     textInput().clear();
     // put text into author input
-    authorInput.type("AUTHOR INPUT");
+    authorInput().type("AUTHOR INPUT");
     // the submit button still disabled.
     submitButton().should("be.disabled");
     // both inputs are filled
