@@ -1,3 +1,5 @@
+const { text } = require("express");
+
 // write tests here
 describe("Quotes app", () => {
   // here go our tests
@@ -50,13 +52,24 @@ describe("Quotes app", () => {
     // set up, sanity checks to make sure initial state is legit
     // act (like typing or clicking - mimicking user input)
     // assert that the action has the effect we expect
+
     //submit quote is disabled.
+    submitButton().should("be.disabled");
     // put text into text input
+    textInput().type("TEXT INPUT");
     // the submit button still disabled.
+    submitButton().should("be.disabled");
+    // clear text input
+    textInput().clear();
     // put text into author input
+    authorInput.type("AUTHOR INPUT");
     // the submit button still disabled.
+    submitButton().should("be.disabled");
     // both inputs are filled
+    textInput().type("TEXT INPUT");
     // submit button is working.
+    submitButton().should("not.be.disabled");
+
     // "be.disabled"
     // .clear()
   });
