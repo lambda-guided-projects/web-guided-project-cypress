@@ -6,10 +6,11 @@ describe('Quote App', () => {
   const authorInput = () => cy.get('[name="author"]')
   const submitButton = () => cy.get('#submitBtn')
   const cancelButton = () => cy.get('#cancelBtn')
+  const newQuote = () => cy.contains('Coding is fun')
   const testText = 'Coding is fun!!!'
 
   beforeEach(() => {
-    cy.visit('http://localhost:1234')
+    cy.visit('/')
   })
 
   // `it` is the test itself
@@ -53,19 +54,47 @@ describe('Quote App', () => {
     })
   })
 
-  describe('Submitting quote', () => {
+  describe('Submitting quote and delete', () => {
     it('can type in the inputs and submit', () => {
       textInput().type(testText)
       authorInput().type('Ben')
 
        submitButton().click()
 
-       const newQuote = () => cy.contains('Coding is fun')
-
        newQuote().should('exist')
 
-       //cleanup
+       //cleanup and test delete functionality
        newQuote().next().next().click()
+       newQuote().should('not.exist')
+    })
+  })
+
+  describe('Editing a quote', () => {
+    it('can edit a existing quote', () => {
+      // create a new quote
+      const text = 'Write tests. Not too many. Mostly Integration'
+      const author = 'Guillermo Rauch'
+      textInput().type(text)
+      authorInput().type(author)
+      submitButton().click()
+      // click on the edit button
+      cy.get('[data-cy=editBtn0]').click()
+      cy.contains(text).next().click()
+      // confirm that the input has expected text
+      textInput().should('have.value', text)
+      authorInput().should('have.value', author)
+      // edit the text in the input
+      textInput().clear().type('Testing trophy is great!')
+      authorInput().clear().type('Ben')
+      // submit the change
+      submitButton().click()
+      // confirm the change is in place
+      textInput().should('have.value', '')
+      authorInput().should('have.value', '')
+
+      cy.contains('Testing trophy is great! (Ben)').should('exist')
+      // then clean up
+      cy.contains('Testing trophy is great! (Ben)').siblings('button:nth-of-type(2)').click()
     })
   })
 })
